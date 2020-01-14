@@ -25,8 +25,8 @@ export class MvBreadcrumbs extends LitElement {
   static get styles() {
     return css`
 			:host {
-        font-family: var(--mv-font-family, Arial);
-				font-size: var(--mv-font-size-m, 1.2rem);
+        font-family: var(--font-family, Arial);
+				font-size: var(--font-size-m, 1.2rem);
       }
 
       ul {
@@ -101,16 +101,19 @@ export class MvBreadcrumbs extends LitElement {
     return html`
       <li>
         ${index > 0
-          ? html`<span class="separator">${!!separator
-              ? separator
-              : html`&rsaquo;`}</span>`
+          ? html`
+            <span class="separator">
+              ${!!separator ? separator : html`&rsaquo;`}
+            </span>
+          `
           : html``}
         ${hasUrl
           ? html`
-          <span class="url">
-            <span class="icon">${icon}</span>
-            <a href="${url}"><span class="label">${label}</span></a>
-          </span>`
+            <span class="url">
+              <span class="icon">${icon}</span>
+              <a href="${url}"><span class="label">${label}</span></a>
+            </span>
+          `
           : html`<span class="icon">${icon}</span><span class="label">${label}</span>`}
       </li>
     `;
