@@ -7,7 +7,9 @@ import "./mv-breadcrumbs.js";
 export class MvBreadcrumbsDemo extends LitElement {
   static get properties() {
     return {
-      samples: { type: Array, attribute: false, reflect: true }
+      samples: { type: Array, attribute: false, reflect: true },
+      open: { type: Boolean, attribute: true },
+      theme: { type: String, attribute: true }
     };
   }
 
@@ -20,6 +22,17 @@ export class MvBreadcrumbsDemo extends LitElement {
 
       mv-container {
         margin: 20px;
+      }
+      
+      mv-fa[icon="lightbulb"] {
+        font-size: 50px;
+        cursor: pointer;
+        margin: 20px;
+      }
+      
+      .theme {
+        display: flex;
+        justify-content: flex-start;
       }
     `;
   }
@@ -90,17 +103,32 @@ export class MvBreadcrumbsDemo extends LitElement {
         ]
       }
     ];
+    this.open = true;
+    this.theme = "light";
   }
 
   render() {
-    return html`${this.samples.map(
-      items => html`
-      <mv-container>
-        <mv-breadcrumbs .items="${items}"></mv-breadcrumbs>
+    const iconColor = `color: ${this.open ? "yellow" : ""}`;
+    return html`
+      <div class="theme">
+        <mv-fa icon="lightbulb" style="${iconColor}" @click=${this.toggleLightBulb}></mv-fa>
+      </div>
+      ${this.samples.map(items => html`
+      <mv-container .theme="${this.theme}">
+        <mv-breadcrumbs .items="${items}" .theme="${this.theme}"></mv-breadcrumbs>
       </mv-container>
       `
     )}`;
   }
+
+  toggleLightBulb = () => {
+    this.open = !this.open;
+    if (this.open) {
+      this.theme = "light";
+    } else {
+      this.theme = "dark";
+    }
+  };
 }
 
 customElements.define("mv-breadcrumbs-demo", MvBreadcrumbsDemo);

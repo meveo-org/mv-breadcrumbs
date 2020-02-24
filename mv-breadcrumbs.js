@@ -18,7 +18,11 @@ export class MvBreadcrumbs extends LitElement {
         ]
       }
       */
-      items: { type: Object, attribute: false, reflect: true }
+      items: { type: Object, attribute: false, reflect: true },
+
+      //  valid theme values are: "light", "dark"
+      //    default: "light"
+      theme: { type: String, attribute: true }
     };
   }
 
@@ -27,6 +31,10 @@ export class MvBreadcrumbs extends LitElement {
 			:host {
         font-family: var(--font-family, Arial);
 				font-size: var(--font-size-m, 1.2rem);
+				--light-color: var(--mv-breadcrumbs-color, #4F4F4F);
+				--hover-light-color: var(--mv-breadcrumbs-hover-color, #B8CCE0);
+				--dark-color: var(--mv-breadcrumbs-dark-color, #FFFFFF);
+				--hover-dark-color: var(--mv-breadcrumbs-hover-dark-color, #B8CCE0);
       }
 
       ul {
@@ -45,7 +53,7 @@ export class MvBreadcrumbs extends LitElement {
       }
 
       li * {
-        color: var(--mv-breadcrumbs-color, #4F4F4F);
+        color: var(--color);
       }
 
       li .url a {
@@ -54,7 +62,7 @@ export class MvBreadcrumbs extends LitElement {
 
       li:hover .url .label {
         text-decoration: underline;
-        color: var(--mv-breadcrumbs-hover-color, #B8CCE0);
+        color: var(--hover-color);
       }
 
       .separator {
@@ -66,12 +74,23 @@ export class MvBreadcrumbs extends LitElement {
       .icon {
         font-size: inherit;
       }
+      
+      .dark {
+        --color: var(--dark-color);
+        --hover-color: var(--hover-dark-color);
+      }
+      
+      .light {
+        --color: var(--light-color);
+        --hover-color: var(--hover-light-color);
+      }
 		`;
   }
 
   constructor() {
     super();
     this.items = {};
+    this.theme = "light";
   }
 
   render() {
@@ -81,7 +100,7 @@ export class MvBreadcrumbs extends LitElement {
     const hasLinks = linksCount > 0;
     return hasLabel
       ? html`
-      <nav>
+      <nav class="${this.theme}">
         <ul>
           ${hasLinks
             ? links.map((link, index) =>
