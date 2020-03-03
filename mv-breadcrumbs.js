@@ -28,15 +28,15 @@ export class MvBreadcrumbs extends LitElement {
 
   static get styles() {
     return css`
-			:host {
+      :host {
         font-family: var(--font-family, Arial);
-				font-size: var(--font-size-m, 1.2rem);
-				--light-color: var(--mv-breadcrumbs-color, #4F4F4F);
-				--hover-light-color: var(--mv-breadcrumbs-hover-color, #B8CCE0);
-				--dark-color: var(--mv-breadcrumbs-dark-color, #FFFFFF);
-				--hover-dark-color: var(--mv-breadcrumbs-hover-dark-color, #B8CCE0);
+        font-size: var(--font-size-m, 1.2rem);
+        --light-color: var(--mv-breadcrumbs-color, #4F4F4F);
+        --hover-light-color: var(--mv-breadcrumbs-hover-color, #B8CCE0);
+        --dark-color: var(--mv-breadcrumbs-dark-color, #FFFFFF);
+        --hover-dark-color: var(--mv-breadcrumbs-hover-dark-color, #B8CCE0);
       }
-
+      
       ul {
         padding: 0;
         margin: 0;
@@ -84,7 +84,7 @@ export class MvBreadcrumbs extends LitElement {
         --color: var(--light-color);
         --hover-color: var(--hover-light-color);
       }
-		`;
+    `;
   }
 
   constructor() {
