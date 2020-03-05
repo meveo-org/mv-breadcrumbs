@@ -117,8 +117,8 @@ export class MvBreadcrumbsDemo extends LitElement {
     return html`
       <fieldset>
         <legend>Theme</legend>
-        <label><input type="radio" name="theme" value="light" checked @change="${this.radioChange}" />Light</label>
-        <label><input type="radio" name="theme" value="dark" @change="${this.radioChange}" />Dark</label>
+        <label><input type="radio" name="theme" value="light" checked @change="${this.changeTheme}" />Light</label>
+        <label><input type="radio" name="theme" value="dark" @change="${this.changeTheme}" />Dark</label>
       </fieldset>
       ${this.samples.map(items => html`
       <mv-container .theme="${this.theme}">
@@ -128,13 +128,9 @@ export class MvBreadcrumbsDemo extends LitElement {
     )}`;
   }
 
-  radioChange = originalEvent => {
+  changeTheme = originalEvent => {
     const { target: { value } } = originalEvent;
-    if (value === "light") {
-      this.theme = "light";
-    } else {
-      this.theme = "dark";
-    }
+    this.theme = value;
   };
 }
 
