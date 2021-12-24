@@ -1,0 +1,22 @@
+{
+  "name": "@meveo-org/mv-breadcrumbs",
+  "version": "1.0.0",
+  "description": "MvBreadcrumbs is a Meveo component (based on lit-element) that renders breadcrumb links.",
+  "main": "mv-breadcrumbs.js",
+  "scripts": {
+    "serve": "es-dev-server --node-resolve --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meveo-org/mv-breadcrumbs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meveo-org/mv-breadcrumbs/issues"
+  },
+  "homepage": "https://github.com/meveo-org/mv-breadcrumbs#readme",
+  "devDependencies": {
+    "es-dev-server": "^1.46.1"
+  }
+}
