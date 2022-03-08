@@ -1,6 +1,6 @@
-import { LitElement, html, css } from "lit-element";
-import "mv-container";
-import "mv-font-awesome";
+import { LitElement, html, css } from "lit";
+import "@meveo-org/mv-container";
+import "@meveo-org/mv-font-awesome";
 
 import "./mv-breadcrumbs.js";
 

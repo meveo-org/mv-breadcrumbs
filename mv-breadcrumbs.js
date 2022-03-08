@@ -1,4 +1,4 @@
-import { LitElement, html, css } from "lit-element";
+import { LitElement, html, css } from "lit";
 
 export class MvBreadcrumbs extends LitElement {
   static get properties() {
